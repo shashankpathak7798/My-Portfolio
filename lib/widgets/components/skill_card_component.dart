@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/widgets/text_widget.dart';
+import '/widgets/text_widget.dart';
 
 class SkillCardComponent extends StatelessWidget {
   const SkillCardComponent({Key? key, required this.image, required this.title, required this.description}) : super(key: key);
@@ -11,8 +11,7 @@ class SkillCardComponent extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return SizedBox(
-      width: size.width * 0.24,
-      height: size.height * 0.3,
+      width: size.width * 0.27,
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(10),

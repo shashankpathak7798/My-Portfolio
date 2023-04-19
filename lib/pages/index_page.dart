@@ -13,7 +13,9 @@ class IndexPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery
+        .of(context)
+        .size;
 
     return SizedBox(
       width: size.width,
@@ -27,7 +29,7 @@ class IndexPage extends StatelessWidget {
               Container(
                 color: Colors.grey.withOpacity(0.2),
                 width: size.width,
-                height: size.height * 0.87,
+                height: size.width > 800 ? size.height * 0.8 : size.height * 0.5,
                 child: Padding(
                   padding: const EdgeInsets.only(
                     left: 30,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/widgets/components/skill_bar_component.dart';
-import 'package:my_portfolio/widgets/text_widget.dart';
+
+import '../widgets/text_widget.dart';
+
+import './components/skill_bar_component.dart';
 
 class DescriptionWidget extends StatefulWidget {
   const DescriptionWidget({Key? key}) : super(key: key);
@@ -39,7 +41,7 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
     },
     {
       "name": "Java",
-      "percent": 85,
+      "percent": 80,
       "color": const Color.fromRGBO(247, 208, 96, 1,),
     },
     {
@@ -54,7 +56,7 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
     final size = MediaQuery.of(context).size;
 
     return Padding(
-      padding: const EdgeInsets.only(top: 100, left: 120,),
+      padding: EdgeInsets.only(top: 100, left: size.width * 0.03,),
       child: SizedBox(
         width: size.width * 0.9,
         height: size.height * 0.4,
@@ -69,7 +71,7 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
                 children: [
                   TextWidget(text: "Profile", textWeight: FontWeight.w700, textSize: size.width * 0.025, spacing: 0.3, textColor: const Color.fromRGBO(52, 62, 81, 1,),),
                   const SizedBox(height: 20,),
-                  TextWidget(text: "As a current student pursuing a degree in Computer Science, I am eager to build a career in Flutter development. With a solid foundation in programming languages such as Java and Dart, I have already begun exploring Flutter and Dart, and am enthusiastic about learning more.", textWeight: FontWeight.w300, textSize: size.width * 0.014, spacing: 0.2, textColor: const Color.fromRGBO(96, 105, 123, 1,),),
+                  TextWidget(text: "As a current student pursuing a degree in Computer Science, I am eager to build a career in Flutter development. With a solid foundation in programming languages such as Java and Dart, I have already begun exploring Flutter and Dart, and am enthusiastic about learning more.", textWeight: FontWeight.w300, textSize: size.width * 0.013, spacing: 0.2, textColor: const Color.fromRGBO(96, 105, 123, 1,),),
                 ],
               ),
             ),
@@ -77,7 +79,7 @@ class _DescriptionWidgetState extends State<DescriptionWidget> {
             SizedBox(
               width: size.width * 0.4,
               height: size.height * 0.25 + 5,
-              child: ListView.builder(itemBuilder: (context, index) => SkillBarComponent(title: skills[index]["name"], percent: skills[index]["percent"], progressColor: skills[index]["color"],), itemCount: skills.length,),
+              child: ListView.builder(itemBuilder: (context, index) => SkillBarComponent(title: skills[index]["name"], percent: skills[index]["percent"], progressColor: skills[index]["color"], totalSkills: skills.length as double,), itemCount: skills.length,),
             ),
           ],
         ),

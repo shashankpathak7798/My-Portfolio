@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/widgets/components/project_details_component.dart';
-import 'package:my_portfolio/widgets/text_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import './components/project_details_component.dart';
+import './text_widget.dart';
 
 class ProjectsWidget extends StatefulWidget {
   const ProjectsWidget({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class _ProjectsWidgetState extends State<ProjectsWidget> {
     final size = MediaQuery.of(context).size;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 120,),
+      padding: EdgeInsets.symmetric(vertical: 30, horizontal: size.width * 0.03,),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -48,7 +49,7 @@ class _ProjectsWidgetState extends State<ProjectsWidget> {
               children: [
               TextWidget(text: "Projects", textWeight: FontWeight.w900, textSize: size.width * 0.025, spacing: 0.2, textColor: const Color.fromRGBO(52, 62, 81, 1,),),
               const SizedBox(height: 10,),
-              TextWidget(text: "Check out some of my latest projects", textWeight: FontWeight.w400, textSize: size.width * 0.015, spacing: 0.2, textColor: const Color.fromRGBO(52, 62, 81, 1,),),
+              TextWidget(text: "Check out some of my latest projects", textWeight: FontWeight.w400, textSize: size.width * 0.018, spacing: 0.2, textColor: const Color.fromRGBO(52, 62, 81, 1,),),
             ],),
             ElevatedButton(onPressed: () async {
               if(await canLaunchUrl(Uri.parse("https://github.com/shashankpathak7798/"),)) {
@@ -64,9 +65,9 @@ class _ProjectsWidgetState extends State<ProjectsWidget> {
               child: Text("See All", style: TextStyle(fontSize: 22,),),
             ),)
           ],),
-          const SizedBox(height: 20,),
+          SizedBox(height: size.height * 0.03,),
           ProjectDetailsComponent(name: projects[0]["title"], description: projects[0]["description"], github: projects[0]["github"], images: projects[0]["images"], bgColor: projects[0]["color"],),
-          const SizedBox(height: 40,),
+          SizedBox(height: size.height * 0.04,),
           ProjectDetailsComponent(name: projects[1]["title"], description: projects[1]["description"], github: projects[1]["github"], images: projects[1]["images"], bgColor: projects[1]["color"],),
         ],
       ),

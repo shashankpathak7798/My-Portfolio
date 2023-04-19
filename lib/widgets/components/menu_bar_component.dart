@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/widgets/text_widget.dart';
+
+import '/widgets/text_widget.dart';
 
 class MenuBarComponent extends StatefulWidget {
   const MenuBarComponent({Key? key}) : super(key: key);

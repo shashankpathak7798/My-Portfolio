@@ -7,11 +7,13 @@ class SkillBarComponent extends StatelessWidget {
       {Key? key,
       required this.title,
       required this.percent,
-      required this.progressColor})
+      required this.progressColor,
+      required this.totalSkills,
+      })
       : super(key: key);
 
   final String title;
-  final double percent;
+  final double percent, totalSkills;
   final Color progressColor;
 
   @override
@@ -41,11 +43,11 @@ class SkillBarComponent extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 5,
+        SizedBox(
+          height: size.width * 0.015,
         ),
         SizedBox(
-          width: percent * 5.9,
+          width: percent < 100 ? percent * (size.width * 0.005) - 20 : size.width * 0.4,
           child: Container(
             width: percent,
             height: 10,

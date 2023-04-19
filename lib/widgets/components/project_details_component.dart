@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:my_portfolio/widgets/text_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '/widgets/text_widget.dart';
 
 class ProjectDetailsComponent extends StatefulWidget {
   const ProjectDetailsComponent({
@@ -49,19 +49,21 @@ class _ProjectDetailsComponentState extends State<ProjectDetailsComponent> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    print("Size: ${size.width}");
 
     return Container(
-      width: size.width * 0.8,
+      width: size.width * 0.9,
       height: size.height * 0.6,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: widget.bgColor,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.only(
-              left: 50,
+            padding: EdgeInsets.only(
+              left: size.width * 0.05,
             ),
             child: SizedBox(
               width: 300,
@@ -72,7 +74,7 @@ class _ProjectDetailsComponentState extends State<ProjectDetailsComponent> {
                   TextWidget(
                     text: title,
                     textWeight: FontWeight.w700,
-                    textSize: size.width * 0.015,
+                    textSize: size.width * 0.03,
                     spacing: 0.2,
                     textColor: const Color.fromRGBO(
                       52,
@@ -87,8 +89,8 @@ class _ProjectDetailsComponentState extends State<ProjectDetailsComponent> {
                   TextWidget(
                     text: description,
                     textWeight: FontWeight.w500,
-                    textSize: size.width * 0.012,
-                    spacing: 0.2,
+                    textSize: size.width > 800 ? (size.width * 0.012) : (size.width * 0.024),
+                    spacing: 0.5,
                     textColor: const Color.fromRGBO(
                       96,
                       105,
@@ -147,36 +149,39 @@ class _ProjectDetailsComponentState extends State<ProjectDetailsComponent> {
               ),
             ),
           ),
-          SizedBox(
-            width: size.width * 0.4,
-            height: size.height * 0.5,
-            child: Stack(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                      child: Image.asset(widget.images[0]),
-                    ),
-                    SizedBox(
-                      child: Image.asset(widget.images[1]),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: size.width * 0.12,
+          Padding(
+            padding: EdgeInsets.only(right: size.width * 0.03),
+            child: SizedBox(
+              width: size.width * 0.4,
+              height: size.height * 0.5,
+              child: Stack(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        child: Image.asset(widget.images[0]),
+                      ),
+                      SizedBox(
+                        child: Image.asset(widget.images[1]),
+                      ),
+                    ],
                   ),
-                  child: SizedBox(
-                    child: Card(
-                      elevation: 8,
-                      child: Image.asset(
-                        widget.images[2],
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.08,
+                    ),
+                    child: SizedBox(
+                      child: Card(
+                        elevation: 8,
+                        child: Image.asset(
+                          widget.images[2],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
