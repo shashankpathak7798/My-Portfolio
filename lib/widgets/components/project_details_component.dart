@@ -152,33 +152,24 @@ class _ProjectDetailsComponentState extends State<ProjectDetailsComponent> {
           Padding(
             padding: EdgeInsets.only(right: size.width * 0.03),
             child: SizedBox(
-              width: size.width * 0.4,
+              width: size.width * 0.5,
               height: size.height * 0.5,
-              child: Stack(
+              child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(
-                        child: Image.asset(widget.images[0]),
-                      ),
-                      SizedBox(
-                        child: Image.asset(widget.images[1]),
+                      Image.asset(widget.images[0],
+                          height: size.height * 0.4,),
+                      Image.asset(widget.images[1],
+                          height: size.height * 0.4,),
+                      Image.asset(widget.images[2],
+                          height: size.height * 0.4,),
+                      if(widget.images.length == 4) SizedBox(
+                        child: Image.asset(widget.images[3],
+                          height: size.height * 0.4,),
                       ),
                     ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.08,
-                    ),
-                    child: SizedBox(
-                      child: Card(
-                        elevation: 8,
-                        child: Image.asset(
-                          widget.images[2],
-                        ),
-                      ),
-                    ),
                   ),
                 ],
               ),

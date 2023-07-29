@@ -34,10 +34,10 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             TextWidget(
-              text: "Shashank",
+              text: "Shashank R Pathak",
               textWeight: FontWeight.w800,
               textSize: size.width * 0.02,
-              spacing: 0.2,
+              spacing: 0.5,
               textColor: Colors.black,
             ),
             // const MenuBarComponent(),

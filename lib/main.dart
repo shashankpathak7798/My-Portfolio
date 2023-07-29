@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Shashank Pathak- Flutter Developer',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: "OpenSans",
+        fontFamily: "Montserrat",
       ),
       home: const ResponsiveLayout(
         desktopBody: IndexPage(),

@@ -17,14 +17,17 @@ class _IntroWidgetState extends State<IntroWidget> {
 
 
   Widget _buildAvatar(Size size) {
-    return SizedBox(
+    return Container(
+      width: size.width * 0.25,
+      height: size.height * 0.6,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30000),
+      ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(1000),
+        borderRadius: BorderRadius.circular(30000),
         child: Image.asset(
           "assets/images/personal_pic.jpg",
-          fit: BoxFit.contain,
-          width: size.width * 0.25,
-          height: size.height * 0.6,
+          fit: BoxFit.cover,
         ),
       ),
     );
@@ -37,7 +40,7 @@ class _IntroWidgetState extends State<IntroWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextWidget(
-          text: "I'm Mobile Application Developer\n& Flutter Developer.",
+          text: "I'm Mobile Application Developer.",
           textWeight: FontWeight.w900,
           textSize: size.width * 0.03,
           spacing: 0.4,
@@ -46,17 +49,20 @@ class _IntroWidgetState extends State<IntroWidget> {
         const SizedBox(
           height: 10,
         ),
-        TextWidget(
-          text:
-          "Hello! I'm Shashank, a freelance mobile app\ndeveloper & also a fresher based in Maharashtra, India.\nI'm very passionate about the work I do.",
-          textWeight: FontWeight.w300,
-          textSize: size.width * 0.015,
-          spacing: 0.2,
-          textColor: const Color.fromRGBO(
-            96,
-            105,
-            123,
-            1,
+        SizedBox(
+          width: size.width * 0.4,
+          child: TextWidget(
+            text:
+            "Hello! I'm Shashank, a freelance mobile app developer & also a fresher based in Maharashtra, India. I'm very passionate about the work I do.",
+            textWeight: FontWeight.bold,
+            textSize: size.width * 0.015,
+            spacing: 0.8,
+            textColor: const Color.fromRGBO(
+              96,
+              105,
+              123,
+              1,
+            ),
           ),
         ),
         const SizedBox(
